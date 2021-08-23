@@ -49,8 +49,8 @@ const saveTaskImg = async (req, res) => {
     //leer se encarga de tomar el archivo , por favor cargue la imagen
     //Despues de leer se escribe es la carpeta donde va a quedar guardado como se llama y la extension , ya con esta linea queda guardado en la carpeta uploads.
     fs.createReadStream(req.files.image.path).pipe(fs.createWriteStream(serverImg));
-    //en la bd vamos a guardar un campo.
-    
+      //en la bd vamos a guardar un campo.
+
     imageUrl = url + "/uploads/" + moment().unix() + path.extname(req.files.image.path);
   }
 let board = new Board({
@@ -58,6 +58,7 @@ let board = new Board({
   name: req.body.name,
   description: req.body.description,
   taskStatus: "to-do",
+  imageUrl:imageUrl,
 });
 
 let result = await board.save();
