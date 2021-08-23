@@ -31,7 +31,28 @@ const listTask = async (req, res) => {
   return res.status(200).send({ board });
 };
 
-const saveTaskImg = async (req, res) => {};
+//funcion de guardar imagen
+const saveTaskImg = async (req, res) => {
+  if (!req.body.name || !req.body.description)
+  return res.status(400).send("Incomplete data");
+  //necesitamos generar una URL para cargar la imagen
+  let imageUrl = "";
+  console.log(req.files);
+  if(req.files !== undefined && req.files.image.type){
+    
+  }
+let board = new Board({
+  userId: req.user._id,
+  name: req.body.name,
+  description: req.body.description,
+  taskStatus: "to-do",
+});
+
+let result = await board.save();
+if (!result) return res.status(400).send("Error registering task");
+return res.status(200).send({ result });
+
+};
 
 const updateTask = async (req, res) => {
   let validId = mongoose.Types.ObjectId.isValid(req.body._id);
