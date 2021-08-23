@@ -1,7 +1,10 @@
 const Board = require("../models/board");
 const mongoose = require("mongoose");
+//manejador de archivos
 const fs = require("fs");
+//path rutas internas
 const path = require("path");
+//para las fechas en tiempo real de mongo
 const moment = require("moment");
 
 const saveTask = async (req, res) => {
@@ -21,6 +24,7 @@ const saveTask = async (req, res) => {
 };
 
 const listTask = async (req, res) => {
+  //aqui busca solamente por el re.user._id esto quiere decir tan pronto se logee
   let board = await Board.find({ userId: req.user._id });
   if (!board || board.length === 0)
     return res.status(400).send("You have no assigned tasks");
