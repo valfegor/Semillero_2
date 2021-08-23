@@ -43,10 +43,12 @@ const saveTaskImg = async (req, res) => {
     //la palabra protocol es la primera parte de la url es decir el protocolo HTTP del request obtenemos el host que llegue
     let url = req.protocol + "://" + req.get('host')+"/";
     //aqui va a quedar la imagen en nuestro servidor
-    //queda de la siguiente manera //http:localhost:3001/uploads/57485(codigo que saquemos por fecha) el path + el nombre de la extension
+    //queda de la siguiente manera //http:localhost:3001/uploads/57485 -c:user/desktop/js.png (codigo que saquemos por fecha) el path + el nombre de la extension
     //el path es la ruta de donde se cargo , es decir sacar la extension
     let serverImg = "./uploads/" + moment().unix() + path.extname(req.files.image.path);
-
+    //leer se encarga de tomar el archivo , por favor cargue la imagen
+    //Despues de leer se escribe es la carpeta donde va a quedar guardado como se llama y la extension , ya con esta linea queda guardado en la carpeta uploads.
+    fs.createReadStream(req.files.image.path).pipe(fs.createWriteStream(serverImg))
   }
 let board = new Board({
   userId: req.user._id,
