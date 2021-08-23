@@ -36,12 +36,17 @@ const saveTaskImg = async (req, res) => {
   if (!req.body.name || !req.body.description)
   return res.status(400).send("Incomplete data");
   //necesitamos generar una URL para cargar la imagen
-  let imageUrl = ""; //http://
+  let imageUrl = ""; //http://localhost:3001/
   console.log(req.files);
   //si viene la imagen o si viene otro tipo de archivo no soportado
   if(req.files !== undefined && req.files.image.type){
     //la palabra protocol es la primera parte de la url es decir el protocolo HTTP del request obtenemos el host que llegue
-    let url = req.protocol + "://" + req.get('host');
+    let url = req.protocol + "://" + req.get('host')+"/";
+    //aqui va a quedar la imagen en nuestro servidor
+    //queda de la siguiente manera //http:localhost:3001/uploads/57485(codigo que saquemos por fecha) el path + el nombre de la extension
+    //el path es la ruta de donde se cargo , es decir sacar la extension
+    let serverImg = "./uploads/" + moment().unix() + path.extname(req.files.image.path);
+
   }
 let board = new Board({
   userId: req.user._id,
