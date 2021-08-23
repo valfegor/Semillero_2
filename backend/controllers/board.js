@@ -36,10 +36,12 @@ const saveTaskImg = async (req, res) => {
   if (!req.body.name || !req.body.description)
   return res.status(400).send("Incomplete data");
   //necesitamos generar una URL para cargar la imagen
-  let imageUrl = "";
+  let imageUrl = ""; //http://
   console.log(req.files);
+  //si viene la imagen o si viene otro tipo de archivo no soportado
   if(req.files !== undefined && req.files.image.type){
-    
+    //la palabra protocol es la primera parte de la url es decir el protocolo HTTP del request obtenemos el host que llegue
+    let url = req.protocol + "://" + req.get('host');
   }
 let board = new Board({
   userId: req.user._id,
