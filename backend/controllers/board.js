@@ -51,7 +51,7 @@ const saveTaskImg = async (req, res) => {
     fs.createReadStream(req.files.image.path).pipe(fs.createWriteStream(serverImg));
     //en la bd vamos a guardar un campo.
     
-    imageUrl = url + serverImg
+    imageUrl = url + "/uploads/" + moment().unix() + path.extname(req.files.image.path);
   }
 let board = new Board({
   userId: req.user._id,
