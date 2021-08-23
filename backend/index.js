@@ -14,6 +14,10 @@ app.use("/api/role", Role);
 app.use("/api/user", User);
 app.use("/api/board", Board);
 
+//permisos.
+//.static es decir de que la carpeta sea publica y se le indica en donde esta la capeta
+app.use("/uploads", express.static("uploads"))
+
 app.listen(process.env.PORT, () =>
   console.log("Backend server running on port: " + process.env.PORT)
 );
