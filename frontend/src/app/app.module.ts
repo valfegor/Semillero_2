@@ -35,7 +35,7 @@ import {TokenInterceptorService  } from "./services/token-interceptor.service";
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [UserService,RoleService,BoardService,TokenInterceptorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
