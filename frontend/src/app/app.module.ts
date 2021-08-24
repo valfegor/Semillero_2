@@ -14,6 +14,7 @@ import { RegisterUserComponent } from './admin/register-user/register-user.compo
 import { UpdateRoleComponent } from './admin/update-role/update-role.component';
 import { UpdateUserComponent } from './admin/update-user/update-user.component';
 import { ListRoleComponent } from './admin/list-role/list-role.component';
+import { SaveTaskComponent } from './board/save-task/save-task.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ListRoleComponent } from './admin/list-role/list-role.component';
     RegisterUserComponent,
     UpdateRoleComponent,
     UpdateUserComponent,
-    ListRoleComponent
+    ListRoleComponent,
+    SaveTaskComponent
   ],
   imports: [
     BrowserModule,
