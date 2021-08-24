@@ -7,6 +7,13 @@ import { HeaderComponent } from './home/header/header.component';
 import { LoginComponent } from './home/login/login.component';
 import { RegisterComponent } from './home/register/register.component';
 import { FooterComponent } from './home/footer/footer.component';
+import { ListTaskComponent } from './board/list-task/list-task.component';
+import { ListUserComponent } from './admin/list-user/list-user.component';
+import { RegisterRoleComponent } from './admin/register-role/register-role.component';
+import { RegisterUserComponent } from './admin/register-user/register-user.component';
+import { UpdateRoleComponent } from './admin/update-role/update-role.component';
+import { UpdateUserComponent } from './admin/update-user/update-user.component';
+import { ListRoleComponent } from './admin/list-role/list-role.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +21,14 @@ import { FooterComponent } from './home/footer/footer.component';
     HeaderComponent,
     LoginComponent,
     RegisterComponent,
-    FooterComponent
+    FooterComponent,
+    ListTaskComponent,
+    ListUserComponent,
+    RegisterRoleComponent,
+    RegisterUserComponent,
+    UpdateRoleComponent,
+    UpdateUserComponent,
+    ListRoleComponent
   ],
   imports: [
     BrowserModule,
