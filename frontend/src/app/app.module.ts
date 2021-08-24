@@ -13,6 +13,11 @@ import { UpdateUserComponent } from './admin/update-user/update-user.component';
 import { RegisterRoleComponent } from './admin/register-role/register-role.component';
 import { UpdateRolComponent } from './admin/update-rol/update-rol.component';
 
+import { UserService } from "./services/user.service";
+import { RoleService } from "./services/role.service";
+import { BoardService } from "./services/board.service";
+import {TokenInterceptorService  } from "./services/token-interceptor.service";
+
 @NgModule({
   declarations: [
     AppComponent,
