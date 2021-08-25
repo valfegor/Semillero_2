@@ -8,6 +8,25 @@
                         <input 
                         [(ngModel)]="registerData.name"
                         matInput
+                        placeholder="Name and lastName"
+                        required
+                        />
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input 
+                        [(ngModel)]="registerData.email"
+                        matInput
+                        placeholder="Email"
+                        required
+                        />
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input 
+                        [(ngModel)]="registerData.password"
+                        type="password"
+                        matInput
+                        placeholder="Password"
+                        required
                         />
                     </mat-form-field>
                 </div>
