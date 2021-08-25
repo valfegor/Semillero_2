@@ -32,7 +32,7 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'signUp',
+    path: '',
     component: RegisterComponent,
     pathMatch: 'full',
   },

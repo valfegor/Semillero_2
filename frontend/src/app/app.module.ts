@@ -24,6 +24,7 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
 
 //guards
 import { AuthGuard } from "./guard/auth.guard";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { AuthGuard } from "./guard/auth.guard";
     ListRoleComponent,
     UpdateRoleComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [UserService, RoleService, BoardService, TokenInterceptorService, AuthGuard],
   bootstrap: [AppComponent],
 })
