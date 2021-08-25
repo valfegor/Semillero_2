@@ -1,13 +1,16 @@
-.headerSpace{
-    flex: 1 1 auto;
-  }
-   
-  a {
-    text-decoration: none;
-    color: white;
-  }
-   
-  .bgHeader {
-    background-color: #383d38;
-  }
-  
+.headerSpace {
+  flex: 1 1 auto;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+ul {
+  margin-top: 10px;
+}
+
+.bgHeader {
+  background-color: #383d38;
+}
