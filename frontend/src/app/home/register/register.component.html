@@ -15,6 +15,7 @@
                     <mat-form-field>
                         <input 
                         [(ngModel)]="registerData.email"
+                        type="email"
                         matInput
                         placeholder="Email"
                         required
@@ -31,6 +32,14 @@
                     </mat-form-field>
                 </div>
             </mat-card-content>
+            <mat-card-actions>
+                <button (click)="registerUser"
+                class="button colorButton"
+                mat-raised-button
+                >
+                    Register
+                </button>
+            </mat-card-actions>
         </mat-card>
     </div>
 </div>
