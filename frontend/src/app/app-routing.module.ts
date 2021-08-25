@@ -32,7 +32,7 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: '',
+    path: 'SingUp',
     component: RegisterComponent,
     pathMatch: 'full',
   },
