@@ -26,11 +26,14 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
 import { AuthGuard } from './guard/auth.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+//imports material
+import {MatToolbarModule} from '@angular/material/toolbar'; 
+import {MatButtonModule} from '@angular/material/button'; 
+
 //angular , los formularios reactivos van cambiando , o se van sincronizando en vivo y por componenetes
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //seleccionamos la carpeta , httpclientmodule permite manejar todo el protocolo http (para consumir apis)
 import { HttpClientModule } from '@angular/common/http';
-
 
 //se ubica lo anterior en el import
 @NgModule({
@@ -49,7 +52,16 @@ import { HttpClientModule } from '@angular/common/http';
     ListRoleComponent,
     UpdateRoleComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule,FormsModule,ReactiveFormsModule,HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatToolbarModule,
+    MatButtonModule
+  ],
   providers: [
     UserService,
     RoleService,
