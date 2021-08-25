@@ -23,6 +23,7 @@ export class RegisterComponent implements OnInit {
   private = solo este archivo va a utilizar esta variable o este metodo
   si no se agrega nada las variables deben ser publicas
   */
+  public registerData:any;
   public message: string;
   public horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   public VerticalPosition: MatSnackBarVerticalPosition = 'top';
@@ -34,6 +35,7 @@ export class RegisterComponent implements OnInit {
   ) {
     //antes de que se construya el archivo la inicializo
     this.message = '';
+    this.registerData = {};
     //mensajehorizontal
   }
 
@@ -49,6 +51,6 @@ export class RegisterComponent implements OnInit {
   }
 
   openSnackBarError(){
-    
+
   }
 }
