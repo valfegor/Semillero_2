@@ -23,9 +23,16 @@ import { BoardService } from './services/board.service';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 
 //guards
-import { AuthGuard } from "./guard/auth.guard";
+import { AuthGuard } from './guard/auth.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+//angular , los formularios reactivos van cambiando , o se van sincronizando en vivo y por componenetes
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+//seleccionamos la carpeta , httpclientmodule permite manejar todo el protocolo http (para consumir apis)
+import { HttpClientModule } from '@angular/common/http';
+
+
+//se ubica lo anterior en el import
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,8 +49,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ListRoleComponent,
     UpdateRoleComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
-  providers: [UserService, RoleService, BoardService, TokenInterceptorService, AuthGuard],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule,FormsModule,ReactiveFormsModule,HttpClientModule],
+  providers: [
+    UserService,
+    RoleService,
+    BoardService,
+    TokenInterceptorService,
+    AuthGuard,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
