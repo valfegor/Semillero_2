@@ -27,6 +27,7 @@ export class RegisterComponent implements OnInit {
   public message: string;
   public horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   public VerticalPosition: MatSnackBarVerticalPosition = 'top';
+  public duratioInseconds:number;
   //son items que necesito que se construyan antes de que se arme el archivo , el constuctor amrama ,
   constructor(
     private _userService: UserService,
@@ -36,6 +37,7 @@ export class RegisterComponent implements OnInit {
     //antes de que se construya el archivo la inicializo
     this.message = '';
     this.registerData = {};
+    this.duratioInseconds =2;
     //mensajehorizontal
   }
 
