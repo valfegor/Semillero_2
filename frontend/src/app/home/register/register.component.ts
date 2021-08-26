@@ -45,7 +45,16 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {}
 
   registerUser(){
+    //validamos que lleguen los datos 
+    if (!this.registerData.name || !this.registerData.email || !this.registerData.password) {
+      console.log('Failed process:imcomplete data');
+      this.message = 'Failed process:imcomplete data';
+      this.openSnackBarError();
+      
+    }
+    else{
 
+    }
   }
 
   openSnackBarSuccesfull(){
