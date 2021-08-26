@@ -64,6 +64,14 @@ export class RegisterComponent implements OnInit {
           localStorage.setItem('token', res.jwtToken);
           //despues los redirecciona a guardar su primera tarea
           this._router.navigate(['/saveTask']);
+
+          this.message = 'Succesfull User Registration';
+
+          this.openSnackBarSuccesfull();
+
+          //despues de todo debe quedar vacio de nuevo
+          this.registerData= {};
+
           
         },
         (err)=>{
@@ -75,7 +83,22 @@ export class RegisterComponent implements OnInit {
     } 
   }
 
-  openSnackBarSuccesfull() {}
+  openSnackBarSuccesfull() {
+    //this.messague = por que ha estado cambiando , {} = CONFIGURACIONES DE LA BARRA , propiedad de la duracion 
+    this._snackbar.open(this.message,'X',{
+      horizontalPosition:this.horizontalPosition,
+      verticalPosition:this.VerticalPosition,
+      duration:this.duratioInseconds*1000,
+      panelClass:['style-snackBarTrue']
+    });
+  }
 
-  openSnackBarError() {}
+  openSnackBarError() {
+    this._snackbar.open(this.message,'X',{
+      horizontalPosition:this.horizontalPosition,
+      verticalPosition:this.VerticalPosition,
+      duration:this.duratioInseconds*1000,
+      panelClass:['style-snackBarFalse']
+    });
+  }
 }
