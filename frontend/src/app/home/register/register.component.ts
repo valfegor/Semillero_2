@@ -23,11 +23,11 @@ export class RegisterComponent implements OnInit {
   private = solo este archivo va a utilizar esta variable o este metodo
   si no se agrega nada las variables deben ser publicas
   */
-  public registerData:any;
+  public registerData: any;
   public message: string;
   public horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   public VerticalPosition: MatSnackBarVerticalPosition = 'top';
-  public duratioInseconds:number;
+  public duratioInseconds: number;
   //son items que necesito que se construyan antes de que se arme el archivo , el constuctor amrama ,
   constructor(
     private _userService: UserService,
@@ -37,31 +37,45 @@ export class RegisterComponent implements OnInit {
     //antes de que se construya el archivo la inicializo
     this.message = '';
     this.registerData = {};
-    this.duratioInseconds =2;
+    this.duratioInseconds = 2;
     //mensajehorizontal
   }
 
   //significa que cuando se ejecute el archivo y las propiedades del archivo el codigo que este adentro se va a ejecutar cuando cargue el archivo , ejemplo que las tareas se listen apenas inicie sesion
   ngOnInit(): void {}
 
-  registerUser(){
-    //validamos que lleguen los datos 
-    if (!this.registerData.name || !this.registerData.email || !this.registerData.password) {
+  registerUser() {
+    //validamos que lleguen los datos
+    if (
+      !this.registerData.name ||
+      !this.registerData.email ||
+      !this.registerData.password
+    ) {
       console.log('Failed process:imcomplete data');
       this.message = 'Failed process:imcomplete data';
       this.openSnackBarError();
-      
-    }
-    else{
-
-    }
+      this.registerData = {};
+    } else {
+      //servicio de usuario el subscribe es como el trycach
+      this._userService.regiserUser(this.registerData).subscribe(
+        (res) => {
+          console.log(res);
+          //guardamos en el local storage , para saber que hay un usuario registrado
+          localStorage.setItem('token', res.jwtToken);
+          //despues los redirecciona a guardar su primera tarea
+          this._router.navigate(['/saveTask']);
+          
+        },
+        (err)=>{
+          console.log(err);
+          this.message=err.error;
+          this.openSnackBarError();
+        }
+      );
+    } 
   }
 
-  openSnackBarSuccesfull(){
+  openSnackBarSuccesfull() {}
 
-  }
-
-  openSnackBarError(){
-
-  }
+  openSnackBarError() {}
 }
