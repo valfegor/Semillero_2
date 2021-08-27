@@ -25,4 +25,17 @@ export class UserService {
   regiserUser(user: any) {
     return this._http.post<any>(this.env + 'user/registerUser', user);
   }
+
+  login(user: any) {
+    return this._http.post<any>(this.env + 'user/login', user);
+  }
+
+  loggedIn(){
+    return !!localStorage.getItem('token');
+  }
+
+  getToke(){
+    //obtenemos el toquen del localStorage
+    return localStorage.getItem('token');
+  }
 }
