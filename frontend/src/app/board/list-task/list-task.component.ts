@@ -84,7 +84,8 @@ export class ListTaskComponent implements OnInit {
         }
       },
       (err)=>{
-
+        this.message = err.error;
+        this.openSnackBarError();
       }
     )
   }
