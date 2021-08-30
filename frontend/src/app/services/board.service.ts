@@ -13,18 +13,18 @@ export class BoardService {
   }
 
   saveTask(board:any){
-
+    return this._http.post<any>(this.env+'board/saveTask',board);
   }
 
   listTask(){
-
+    return this._http.get<any>(this.env+'board/listTask');
   }
 
   updateTask(board:any){
-
+    return this._http.put<any>(this.env + 'board/updateTask', board);
   }
 
   deleteTask(board:any){
-    
+    return this._http.delete<any>(this.env + 'board/deleteTask'+board._id);
   }
 }
