@@ -21,7 +21,7 @@ export class BoardService {
   }
 
   updateTask(board:any){
-    return this._http.put<any>(this.env + 'board/updateTask', board);
+    return this._http.put<any>(this.env + 'board/updateTask', board); 
   }
 
   deleteTask(board:any){

@@ -35,7 +35,41 @@ export class SaveTaskComponent implements OnInit {
   ngOnInit(): void {}
 
   saveTask(){
-    
+        //validamos que lleguen los datos
+    if (
+      !this.registerData.name ||
+      !this.registerData.password
+    ) {
+      console.log('Failed process:imcomplete data');
+      this.message = 'Failed process:imcomplete data';
+      this.openSnackBarError();
+      this.registerData = {};
+    } else {
+      //servicio de usuario el subscribe es como el trycach
+      this._boardService.saveTask(this.registerData).subscribe(
+        (res) => {
+          console.log(res);
+          //guardamos en el local storage , para saber que hay un usuario registrado
+          
+          //despues los redirecciona a guardar su primera tarea
+          this._router.navigate(['/listTask']);
+
+          this.message = 'Succesfull Task Registration';
+
+          this.openSnackBarSuccesfull();
+
+          //despues de todo debe quedar vacio de nuevo
+          this.registerData= {};
+
+          
+        },
+        (err)=>{
+          console.log(err);
+          this.message=err.error;
+          this.openSnackBarError();
+        }
+      );
+    } 
   }
 
   openSnackBarSuccesfull() {
