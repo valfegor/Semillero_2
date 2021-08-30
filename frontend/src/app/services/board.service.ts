@@ -13,7 +13,10 @@ export class BoardService {
   }
 
   saveTask(board:any){
+    console.log(board);
+    
     return this._http.post<any>(this.env+'board/saveTask',board);
+  
   }
 
   listTask(){
