@@ -18,6 +18,7 @@ export class TokenInterceptorService implements HttpInterceptor{
           Authorization:'Bearer ' + this._userService.getToken(),
         }
       });
+      //siempre se coloca el handle= hande = resolver
       return next.handle(tokenReq)
   }
 }
