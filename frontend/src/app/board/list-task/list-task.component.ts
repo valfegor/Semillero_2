@@ -37,6 +37,17 @@ export class ListTaskComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this._boardService.listTask().subscribe(
+      (res)=>{
+        console.log(res);
+        this.taskData = res.board;
+      },
+      (err)=>{
+        console.log(err);
+        this.message = err.error;
+        this.openSnackBarError();
+      }
+    )
   }
 
   updateTask(board:any,status:string){}
