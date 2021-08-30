@@ -30,6 +30,7 @@ export class SaveTaskComponent implements OnInit {
   ) {
     this.message = "";
     this.duratioInseconds = 2;
+    this.registerData = {}
   }
 
   ngOnInit(): void {}
@@ -38,9 +39,9 @@ export class SaveTaskComponent implements OnInit {
         //validamos que lleguen los datos
     if (
       !this.registerData.name ||
-      !this.registerData.password
+      !this.registerData.description
     ) {
-      console.log('Failed process:imcomplete data');
+      console.log('Failed process:incomplete data');
       this.message = 'Failed process:imcomplete data';
       this.openSnackBarError();
       this.registerData = {};
