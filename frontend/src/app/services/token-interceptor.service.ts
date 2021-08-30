@@ -1,11 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpInterceptor  } from "@angular/common/http";
+import { HttpInterceptor} from "@angular/common/http";
 import { UserService } from "./user.service";
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class TokenInterceptorService {
+export class TokenInterceptorService implements HttpInterceptor{
 
-  constructor() { }
+  constructor(private_userService:UserService) { }
+  //del request interceptamos el token
+  intercept(req:any, next: any){
+    
+  }
 }
