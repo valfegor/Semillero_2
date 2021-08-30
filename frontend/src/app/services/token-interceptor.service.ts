@@ -14,7 +14,7 @@ export class TokenInterceptorService implements HttpInterceptor{
     //voy a clonar el request es decir en json que es lo que quiero sacar.
     //clonar solo el token
       const tokenReq = req.clone({
-        setHeader:{
+        setHeaders:{
           Authorization:'Bearer ' + this._userService.getToken(),
         }
       });

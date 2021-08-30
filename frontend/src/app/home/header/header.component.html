@@ -12,6 +12,6 @@
   <ul>
     <a *ngIf="!_userService.loggedIn()" mat-button routerLink="SingUp">Sing Up</a>
     <a *ngIf="!_userService.loggedIn()"mat-button routerLink="login">Login</a>
-    <a *ngIf="_userService.loggedIn()" mat-button>Logout</a>
+    <a *ngIf="_userService.loggedIn()" (click)="_userService.logout()" mat-button>Logout</a>
   </ul>
 </mat-toolbar>

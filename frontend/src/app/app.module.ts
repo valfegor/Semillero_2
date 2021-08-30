@@ -34,6 +34,12 @@ import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 
+//acordeon
+import {MatExpansionModule} from '@angular/material/expansion';
+
+//iconos
+import {MatIconModule} from '@angular/material/icon'; 
+
 //angular , los formularios reactivos van cambiando , o se van sincronizando en vivo y por componenetes
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //seleccionamos la carpeta , httpclientmodule permite manejar todo el protocolo http (para consumir apis)
@@ -69,7 +75,9 @@ import { HttpClientModule , HTTP_INTERCEPTORS} from '@angular/common/http';
     MatFormFieldModule,
     MatCardModule,
     MatInputModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatExpansionModule,
+    MatIconModule
 
   ],
   providers: [
