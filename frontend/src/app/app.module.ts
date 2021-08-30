@@ -37,7 +37,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 //angular , los formularios reactivos van cambiando , o se van sincronizando en vivo y por componenetes
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //seleccionamos la carpeta , httpclientmodule permite manejar todo el protocolo http (para consumir apis)
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule , HTTP_INTERCEPTORS} from '@angular/common/http';
 
 //se ubica lo anterior en el import
 @NgModule({

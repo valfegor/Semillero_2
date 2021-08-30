@@ -34,7 +34,7 @@ export class UserService {
     return !!localStorage.getItem('token');
   }
 
-  getToke(){
+  getToken(){
     //obtenemos el toquen del localStorage
     return localStorage.getItem('token');
   }
