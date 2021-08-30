@@ -71,7 +71,23 @@ export class ListTaskComponent implements OnInit {
     )
   }
 
-  deleteTask(board:any){}
+  deleteTask(task:any){
+    this._boardService.deleteTask(task).subscribe(
+      (res)=>{
+        //llega la tarea que se quiere eliminar , se guarda el indice , se va al array que es taskdata , el indexOf guarda el indice
+        let index = this.taskData.indexOf(task)
+        if(index>-1){
+          //el splice elimina desde el indice si ya tengo el indice lo elimino
+          this.taskData.splice(index,1);
+          this.message = res.message;
+          this.openSnackBarSuccesfull()
+        }
+      },
+      (err)=>{
+
+      }
+    )
+  }
 
 
   openSnackBarSuccesfull() {
