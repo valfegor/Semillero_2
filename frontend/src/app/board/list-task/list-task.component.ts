@@ -54,12 +54,16 @@ export class ListTaskComponent implements OnInit {
   //name:zzz description:zzz taskStatus:to-do
   //status:in-progress
   updateTask(task:any,status:string){
+    console.log(task);
+    
     let tempStatus = task.taskStatus
     task.taskStatus = status
 
     //esto va al backend.
 
     this._boardService.updateTask(task).subscribe(
+    
+      
       (res)=>{
         task.status = status
       },

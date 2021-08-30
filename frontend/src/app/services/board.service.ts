@@ -23,8 +23,8 @@ export class BoardService {
     return this._http.get<any>(this.env+'board/listTask');
   }
 
-  updateTask(board:any){
-    return this._http.put<any>(this.env + 'board/updateTask', board); 
+  updateTask(Xd:any){
+    return this._http.put<any>(this.env + 'board/updateTask', Xd); 
   }
 
   deleteTask(board:any){
