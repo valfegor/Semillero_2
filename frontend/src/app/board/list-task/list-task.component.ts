@@ -30,7 +30,7 @@ export class ListTaskComponent implements OnInit {
     private _router: Router,
     private _snackbar: MatSnackBar) {
 
-      this.message = "";
+    this.message = "";
     this.duratioInseconds = 2;
     this.taskData = {}
     
@@ -50,7 +50,10 @@ export class ListTaskComponent implements OnInit {
     )
   }
 
-  updateTask(board:any,status:string){}
+  updateTask(task:any,status:string){
+    let tempStats = task.taskStatus
+    task.taskStatus = status
+  }
 
   deleteTask(board:any){}
 
