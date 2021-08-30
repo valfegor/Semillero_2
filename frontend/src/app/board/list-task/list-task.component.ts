@@ -40,7 +40,9 @@ export class ListTaskComponent implements OnInit {
     this._boardService.listTask().subscribe(
       (res)=>{
         console.log(res);
+        
         this.taskData = res.board;
+       
       },
       (err)=>{
         console.log(err);
