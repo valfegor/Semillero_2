@@ -55,6 +55,7 @@ import { HttpClientModule , HTTP_INTERCEPTORS} from '@angular/common/http';
     RegisterRoleComponent,
     ListRoleComponent,
     UpdateRoleComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -75,8 +76,12 @@ import { HttpClientModule , HTTP_INTERCEPTORS} from '@angular/common/http';
     UserService,
     RoleService,
     BoardService,
-    TokenInterceptorService,
     AuthGuard,
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:TokenInterceptorService,
+      multi:true 
+    }
   ],
   bootstrap: [AppComponent],
 })
