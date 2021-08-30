@@ -49,10 +49,24 @@ export class ListTaskComponent implements OnInit {
       }
     )
   }
-
+  //name:zzz description:zzz taskStatus:to-do
+  //status:in-progress
   updateTask(task:any,status:string){
-    let tempStats = task.taskStatus
+    let tempStatus = task.taskStatus
     task.taskStatus = status
+
+    //esto va al backend.
+
+    this._boardService.updateTask(task).subscribe(
+      (res)=>{
+        task.status = status
+      },
+      (err)=>{
+        task.status = tempStatus
+        this.message = err.error;
+        this.openSnackBarError();
+      }
+    )
   }
 
   deleteTask(board:any){}
