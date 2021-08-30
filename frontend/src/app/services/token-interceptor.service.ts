@@ -8,9 +8,16 @@ import { UserService } from "./user.service";
 })
 export class TokenInterceptorService implements HttpInterceptor{
 
-  constructor(private_userService:UserService) { }
+  constructor(private _userService:UserService) { }
   //del request interceptamos el token
   intercept(req:any, next: any){
-    
+    //voy a clonar el request es decir en json que es lo que quiero sacar.
+    //clonar solo el token
+      const tokenReq = req.clone({
+        setHeader:{
+          Authorization:'Bearer ' + this._userService.getToken(),
+        }
+      });
+      return next.handle(tokenReq)
   }
 }
