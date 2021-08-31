@@ -51,8 +51,12 @@ export class SaveTaskComponent implements OnInit {
       this.openSnackBarError();
       this.registerData = {};
     } else {
+      const data = new FormData();
+      data.append('image',this.selectedFile , this.selectedFile.name);
+      data.append('name',this.registerData.name);
+      data.append('description',this.registerData.description)
       //servicio de usuario el subscribe es como el trycach
-      this._boardService.saveTask(this.registerData).subscribe(
+      this._boardService.saveTaskImg(data).subscribe(
         (res) => {
           console.log(res);
           //guardamos en el local storage , para saber que hay un usuario registrado
