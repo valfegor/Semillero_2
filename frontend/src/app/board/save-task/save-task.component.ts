@@ -22,6 +22,7 @@ export class SaveTaskComponent implements OnInit {
   public horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   public VerticalPosition: MatSnackBarVerticalPosition = 'top';
   public duratioInseconds: number;
+  selectedFile:any;
 
   constructor(
     private _boardService: BoardService,
@@ -31,9 +32,19 @@ export class SaveTaskComponent implements OnInit {
     this.message = "";
     this.duratioInseconds = 2;
     this.registerData = {}
+    //aqui se guarda la imagen desde la pagina
+    this.selectedFile = null;
   }
 
   ngOnInit(): void {}
+
+  uploadImg(event:any){
+
+  }
+
+  saveTaskImg(){
+    
+  }
 
   saveTask(){
         //validamos que lleguen los datos

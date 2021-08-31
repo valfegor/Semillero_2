@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     private _router: Router,
     private _snackbar: MatSnackBar
   ) { 
-    this.loginData = "";
+    this.loginData = {};
     this.message = '';
     this.duratioInseconds = 2;
   }
