@@ -5,11 +5,11 @@ import { BoardService } from '../../services/board.service';
 import { Router } from '@angular/router';
 //traemos el snapbar por que este nos va a mostrar ciertos mensajes
 //es una barra de mensajes
-import {
-  MatSnackBar,
-  MatSnackBarHorizontalPosition,
-  MatSnackBarVerticalPosition,
-} from '@angular/material/snack-bar';
+  import {
+    MatSnackBar,
+    MatSnackBarHorizontalPosition,
+    MatSnackBarVerticalPosition,
+  } from '@angular/material/snack-bar';
 
 
 @Component({
