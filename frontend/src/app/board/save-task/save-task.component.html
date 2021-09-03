@@ -20,7 +20,22 @@
                         required
                         />
                     </mat-form-field>
-                    
+                    <mat-form-field>
+                        <input 
+                        [(ngModel)]="registerBoard.name"
+                        matInput
+                        placeholder="Board Name"
+                        required
+                        />
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input 
+                        [(ngModel)]="registerBoard.description"
+                        matInput
+                        placeholder="Board xD"
+                        required
+                        />
+                    </mat-form-field>
                         <input 
                         type="file" (change)="uploadImg($event)"
                         />
@@ -33,6 +48,12 @@
                 mat-raised-button
                 >
                     Register
+                </button>
+                <button (click)="saveBoard()"
+                class="button colorButton"
+                mat-raised-button
+                >
+                    Register Board
                 </button>
             </mat-card-actions>
         </mat-card>

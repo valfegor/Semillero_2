@@ -17,6 +17,7 @@ import {
   styleUrls: ['./save-task.component.css'],
 })
 export class SaveTaskComponent implements OnInit {
+  public registerBoard: any;
   public registerData: any;
   public message: string;
   public horizontalPosition: MatSnackBarHorizontalPosition = 'end';
@@ -34,6 +35,7 @@ export class SaveTaskComponent implements OnInit {
     this.registerData = {};
     //aqui se guarda la imagen desde la pagina
     this.selectedFile = null;
+    this.registerBoard= {}
   }
 
   ngOnInit(): void {}
@@ -80,6 +82,21 @@ export class SaveTaskComponent implements OnInit {
           this.openSnackBarError();
         }
       );
+    }
+  }
+
+  saveBoard(){
+    if(!this.registerBoard.name || !this.registerBoard.description){
+      this.message = "Check the camps"
+      this.openSnackBarError();
+    }else{
+      this._boardService.generateBoards(this.registerBoard).subscribe(
+        (res)=>{
+          console.log(res);
+          this.message="Succes";
+          this.openSnackBarSuccesfull();
+        }
+      )
     }
   }
 

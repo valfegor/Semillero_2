@@ -5,6 +5,7 @@ const Auth = require("../middleware/auth");
 const ValidateUser = require("../middleware/validateUser");
 const Admin = require("../middleware/admin");
 
+
 router.post("/registerUser", UserController.registerUser);
 router.post("/login", UserController.login);
 router.get(
