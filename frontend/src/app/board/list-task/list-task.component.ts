@@ -24,6 +24,7 @@ export class ListTaskComponent implements OnInit {
   public horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   public VerticalPosition: MatSnackBarVerticalPosition = 'top';
   public duratioInseconds: number;
+  public tablero:any;
 
 
   constructor(private _boardService: BoardService,
@@ -33,6 +34,7 @@ export class ListTaskComponent implements OnInit {
     this.message = "";
     this.duratioInseconds = 2;
     this.taskData = {}
+    this.tablero={}
     
    }
 
@@ -50,9 +52,22 @@ export class ListTaskComponent implements OnInit {
         this.openSnackBarError();
       }
     )
+      this.listBoards()
+
   }
   //name:zzz description:zzz taskStatus:to-do
   //status:in-progress
+
+  listBoards(){
+    this._boardService.listBoards().subscribe(
+      (res)=>{
+        console.log(res);
+        this.tablero=res.tablero;
+        console.log(this.tablero)
+      }
+    )
+  }
+
   updateTask(task:any,status:string){
     console.log(task);
     

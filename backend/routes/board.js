@@ -31,4 +31,6 @@ router.get('/listTask/:_id', Auth, ValidateUser, BoardController.listTaskShared)
 
 router.post('/registerBoards',Auth, ValidateUser, TableroController.registerBoard)
 
+router.get('/listBoards',Auth, ValidateUser, TableroController.listBoards);
+
 module.exports = router;

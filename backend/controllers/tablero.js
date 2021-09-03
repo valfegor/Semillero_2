@@ -22,5 +22,15 @@ const registerBoard = async (req, res) => {
     return res.status(200).send({tablero})
 }
 
+const listBoards= async (req, res) => {
 
-module.exports = {registerBoard}
+    if(!req.user._id) return res.status(400).send("Sorry");
+
+    let tablero = await Tablero.find({ userId: req.user._id});
+
+    if(!tablero) return res.status(400).send('Sorry no boards');
+
+    return res.status(200).send({tablero});
+}
+
+module.exports = {registerBoard,listBoards}
