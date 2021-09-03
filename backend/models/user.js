@@ -9,7 +9,8 @@ const userSchema = new mongoose.Schema({
   roleId: { type: mongoose.Schema.ObjectId, ref: "role" },
   date: { type: Date, default: Date.now },
   dbStatus: Boolean,
-  Shared:String,
+  Shared:Boolean,
+  SheredUser:Array,
   nickname: String,
 });
 

@@ -44,6 +44,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //seleccionamos la carpeta , httpclientmodule permite manejar todo el protocolo http (para consumir apis)
 import { HttpClientModule , HTTP_INTERCEPTORS} from '@angular/common/http';
+import { SharedBoardsComponent } from './user/shared-boards/shared-boards.component';
 
 //se ubica lo anterior en el import
 @NgModule({
@@ -61,6 +62,7 @@ import { HttpClientModule , HTTP_INTERCEPTORS} from '@angular/common/http';
     RegisterRoleComponent,
     ListRoleComponent,
     UpdateRoleComponent,
+    SharedBoardsComponent,
     
   ],
   imports: [

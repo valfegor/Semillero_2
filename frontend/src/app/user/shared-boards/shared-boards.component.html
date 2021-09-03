@@ -1,0 +1,70 @@
+<div class="bgComponent">
+    <div class="accordion_display">
+      <div class="accordion_size">
+        <mat-accordion multi="true" *ngIf="SharedBoards.length">
+          <mat-expansion-panel *ngFor="let task of SharedBoards" hideToggle="false">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <span>{{ task.name }}</span>
+                <span class="spacer"></span>
+                <button
+                  class="btnDone"
+                  *ngIf="task.taskStatus == 'done'"
+                  mat-raised-button
+                >
+                  {{ task.taskStatus }}
+                </button>
+                <button
+                  class="btnInProgress"
+                  *ngIf="task.taskStatus == 'in-progress'"
+                  mat-raised-button
+                >
+                  {{ task.taskStatus }}
+                </button>
+                <button
+                  class="btnToDo"
+                  *ngIf="task.taskStatus == 'to-do'"
+                  mat-raised-button
+                >
+                  {{ task.taskStatus }}
+                </button>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-panel-description>
+              {{ task.description }}
+            </mat-panel-description>
+            <mat-panel-description>
+            <img src="{{task.imageUrl}}" class="card-img-top image_center" alt="">
+            </mat-panel-description>
+            <mat-action-row>
+              <button
+                class="btnSelectTodo"
+                mat-button
+                
+              >
+                to-do
+              </button>
+              <button
+                class="btnSelectInProgress"
+                mat-button
+                
+              >
+                In-progress
+              </button>
+              <button
+                class="btnSelectDone"
+                mat-button
+                
+              >
+                done
+              </button>
+              <span class="spacer"></span>
+              <mat-icon color="primary" 
+                >delete</mat-icon
+              >
+            </mat-action-row>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </div>
+  </div>

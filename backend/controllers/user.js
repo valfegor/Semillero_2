@@ -52,7 +52,7 @@ const login = async (req, res) => {
 };
 
 const listUser = async (req, res) => {
-  let users = await User.find({ name: new RegExp(req.params["name"], "i") })
+  let users = await User.find({ name: new RegExp(req.params["name"], "i") }) 
     .populate("roleId")
     .exec();
   if (!users || users.length === 0)
@@ -142,13 +142,18 @@ const inviteUser = async (req, res)=>{
 
   let usuarios=[];
 
+  usuarios.push(existUser.name);
+
   console.log(existUser);
 
-  let usuario = existUser.email;
+  console.log(usuarios);
 
   const user = await User.findOneAndUpdate({email:req.body.email},{
     Shared:true,
+    SheredUser:usuarios,
   })
+  
+  
   
 
   if(!user) return res.status(400).send("User not found");

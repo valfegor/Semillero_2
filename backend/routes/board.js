@@ -25,4 +25,6 @@ router.post(
   BoardController.saveTaskImg
 );
 
+router.get('/listTask/:_id', Auth, ValidateUser, BoardController.listTaskShared);
+
 module.exports = router;

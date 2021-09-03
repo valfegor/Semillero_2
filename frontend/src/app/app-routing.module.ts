@@ -9,7 +9,7 @@ import { ListTaskComponent } from './board/list-task/list-task.component';
 import { SaveTaskComponent } from './board/save-task/save-task.component';
 import { LoginComponent } from './home/login/login.component';
 import { RegisterComponent } from './home/register/register.component';
-
+import { SharedBoardsComponent } from "../app/user/shared-boards/shared-boards.component";
 
 import {AuthGuard} from "./guard/auth.guard";
 
@@ -77,6 +77,12 @@ const routes: Routes = [
     canActivate:[AuthGuard],
     pathMatch: 'full',
   },
+  {
+    path:'listUser/listTask/:_id',
+    component: SharedBoardsComponent
+    ,pathMatch: 'full',
+  }
+  
 ];
 
 @NgModule({

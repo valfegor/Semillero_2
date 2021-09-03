@@ -44,4 +44,9 @@ export class UserService {
     localStorage.removeItem('token');
     this._router.navigate(['/login']);
   }
+
+  getUsers() {
+
+    return this._http.get<any>(this.env+'user/listUsers/');
+  }
 }

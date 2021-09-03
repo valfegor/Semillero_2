@@ -31,6 +31,20 @@ const listTask = async (req, res) => {
   return res.status(200).send({ board });
 };
 
+const listTaskShared = async (req, res) => {
+
+  if(!req.params._id) return res.status(400).send("Sorry you dont have the access");
+  console.log(req.params._id);
+  let board = await Board.find({ userId: req.params._id})
+
+  if(!board) return res.status(400).send("Task not found");
+
+  return res.status(200).send({board});
+
+
+
+}
+
   //funcion de guardar imagen
   const saveTaskImg = async (req, res) => {
     if (!req.body.name || !req.body.description)
@@ -103,4 +117,4 @@ const deleteTask = async (req, res) => {
   return res.status(200).send({message:"Task deleted"});
 };
 
-module.exports = { saveTask, listTask, updateTask, deleteTask, saveTaskImg };
+module.exports = { saveTask, listTask, updateTask, deleteTask, saveTaskImg , listTaskShared};
