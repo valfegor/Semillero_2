@@ -9,6 +9,8 @@ const userSchema = new mongoose.Schema({
   roleId: { type: mongoose.Schema.ObjectId, ref: "role" },
   date: { type: Date, default: Date.now },
   dbStatus: Boolean,
+  Shared:String,
+  nickname: String,
 });
 
 userSchema.methods.generateJWT = function () {
@@ -17,6 +19,7 @@ userSchema.methods.generateJWT = function () {
       _id: this._id,
       name: this.name,
       roleId: this.roleId,
+      Shared: this.Shared,
       iat: moment().unix(),
     },
     process.env.SECRET_KEY_JWT

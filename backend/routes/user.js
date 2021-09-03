@@ -24,4 +24,6 @@ router.post(
   UserController.registerAdmin
 );
 
+router.put("/inviteUser",Auth, ValidateUser,UserController.inviteUser);
+
 module.exports = router;

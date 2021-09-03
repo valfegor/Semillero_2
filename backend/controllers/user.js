@@ -61,7 +61,7 @@ const listUser = async (req, res) => {
 };
 
 const updateUser = async (req, res) => {
-  if (!req.body._id || !req.body.name || !req.body.email || !req.body.roleId)
+  if (!req.body._id || !req.body.name || !req.body.email || !req.body.roleId )
     return res.status(400).send("Incomplete data");
 
   let pass = "";
@@ -118,6 +118,7 @@ const registerAdmin = async (req, res) => {
     password: hash,
     roleId: req.body.roleId,
     dbStatus: true,
+    Shared:false,
   });
 
   let result = await user.save();
@@ -130,6 +131,35 @@ const registerAdmin = async (req, res) => {
   }
 };
 
+const inviteUser = async (req, res)=>{
+  if(!req.body.email) return res.status(400).send("check all the camps please");
+
+  console.log(req.body.email);
+
+  const existUser = await User.findOne({email: req.body.email});
+
+  if(!existUser) return res.status(400).send("User not found");
+
+  let usuarios=[];
+
+  console.log(existUser);
+
+  let usuario = existUser.email;
+
+  const user = await User.findOneAndUpdate({email:req.body.email},{
+    Shared:true,
+  })
+  
+
+  if(!user) return res.status(400).send("User not found");
+
+  console.log({user});
+
+  return res.status(200).send({user});
+
+
+}
+
 module.exports = {
   registerUser,
   login,
@@ -137,4 +167,5 @@ module.exports = {
   updateUser,
   deleteUser,
   registerAdmin,
+  inviteUser
 };
