@@ -95,6 +95,11 @@ const deleteTask = async (req, res) => {
 
   let board = await Board.findByIdAndDelete(req.params._id);
   if (!board) return res.status(400).send("Task not found");
+  try {
+    fs.unlinkSync(serverImg)
+  } catch (error) {
+    console.log('image not found in server')
+  }
   return res.status(200).send({message:"Task deleted"});
 };
 
