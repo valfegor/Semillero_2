@@ -87,7 +87,7 @@ const deleteTask = async (req, res) => {
   let validId = mongoose.Types.ObjectId.isValid(req.params._id);
   if (!validId) return res.status(400).send("Invalid id");
 
-  let taskImg = await board.findById(req.params._id);
+  let taskImg = await Board.findById(req.params._id);
   taskImg = taskImg.imageUrl;
   taskImg = taskImg.split("/")[4];
   //guardo la ruta un path
